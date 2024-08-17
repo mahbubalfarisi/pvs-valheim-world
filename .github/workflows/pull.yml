@@ -1,0 +1,18 @@
+name: Notify on Pull
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send notification
+      run: |
+        curl -H "Content-Type: application/json" \
+             -X POST \
+             -d "{\"content\": \"A pull was made to the repository!\"}" \
+             https://discord.com/api/webhooks/1274445078701674528/RoRSDjoym9Nb4XNvICR-MxCFffa1vwWbVCRfHtJRowzyUyraO6tBc8zqctFCXTBIwSZS/github
